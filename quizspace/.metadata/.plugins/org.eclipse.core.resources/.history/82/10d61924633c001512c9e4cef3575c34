@@ -1,0 +1,165 @@
+// Quiz: F2
+// Author: alaswell
+// Date: Aug 6, 2015
+// Class: CS160
+// Email: alaswell@cs.colostate.edu
+import java.util.*;
+import java.io.*;
+
+public class F2 implements F2Interface {
+
+	public static void main(String[] args) {
+
+	}
+
+	@Override
+	public String[] readFile(String filename) {
+
+		try{
+			Scanner infile = new Scanner(new File(filename));
+
+			String[] stringArray = new String[infile.nextInt()];
+
+			while(infile.hasNext())
+			{
+				for(int i = 0; i < stringArray.length; ++i)
+					stringArray[i] = infile.next();
+			}
+			infile.close();
+			return stringArray;
+
+		} catch (FileNotFoundException e){
+			return null;
+		}
+
+	}
+
+	@Override
+	public int[] computeStatistics(String[] myStrings) {
+		/*
+		 * Method: computeStatistics
+		 * Purpose: Compute statistics for the myStrings array
+		 * Precondition: myStrings contains array of strings
+		 * Postcondition: computeStatistics returns an integer array of size 3
+		 * Postcondition: the element at index 0 of the return array is set to the 
+		 * 	number of characters in the array
+		 * PostconditionP: the element at index 1 of the return array is set to the
+		 * 	number of letters in the array
+		 * Postcondition: the element at index 2 of the return array is set to the 
+		 * 	number of digits in the array
+		 * Postcondition: if myStrings is null, return null
+		 */
+		if(myStrings == null)
+			return null;
+		else
+		{
+			int[] countArray = new int[2];
+			char[] letterArray = new char[myStrings.length];
+			int[] numArray = new int[myStrings.length];
+
+			countArray[0] = myStrings.length;
+
+			for(int i = 0; i < myStrings.length; ++i)
+			{
+				for(int j = 0; j < myStrings.length; ++j)
+				{
+					char c = myStrings[i].charAt(j);
+					if( Character.isAlphabetic(c))
+						letterArray[i] = c;
+				}
+			}
+			countArray[1] = letterArray.length;
+
+			for(int i = 0; i < myStrings.length; ++i)
+			{
+				for(int j = 0; j < myStrings.length; ++j)
+				{
+					char c = myStrings[i].charAt(j);
+					if(Character.isDigit(c))
+						numArray[i] = c;
+				}
+			}
+			countArray[2] = numArray.length;
+			return countArray;
+		}
+	}
+
+	@Override
+	public void writeFile(String filename, String[] myStrings) {
+		/*
+		 * Method: writeFile
+		 * Purpose:  Writes the contents of the myStrings array to a file
+		 * Precondition: the parameter fileName is initialized to the
+		 * 	name of the file to be written
+		 * Precondition: The array myStrings contains strings to be
+		 * 	written to the file, 1 line per string
+		 * Postcondition: The file identified by fileName contains
+		 * 	the array of strings.
+		 * Postcondition: if myStrings is null or zero length, write the
+		 * 	string "Empty file" to the file.
+		 * Postcondition: the catch block does not need to contain code.
+		 */
+		try{
+			PrintWriter outfile = new PrintWriter(new File(filename));
+
+
+			for(int i = 0; i < myStrings.length; ++i)
+			{
+
+			}
+
+		} catch (Exception e){
+
+		}
+
+	}
+
+	@Override
+	public int sumRange(int[] myValues, int low, int high) {
+		/* Method: sumRange
+		 * Purpose: to sum a set of values within a range in an array
+		 * Precondition: myValues contains from 0 to 1000 values
+		 * Precondition: low and high are integers that define the
+		 * 	range of values to sum
+		 * Postconditon: the return value is set to the sum of all
+		 * 	values in the array between low and high inclusive.
+		 */
+		int count = 0;
+		for(int i = low; i < (high - low) + 1; ++i)
+		{
+			count += myValues[i]; 
+		}
+		return count;
+	}
+
+	@Override
+	public double[] findLargest(double[] myValues) {
+		/* Method: getLargest
+		 * Purpose: Find the two largest values in the array myValues
+		 * Precondition: myValues contains an array of doubles or null
+		 * Postcondition: if myValues is null or contains less than 
+		 * 		2 values, return null
+		 * Postcondition: if myValues contains 2 or more values, return
+		 * 	an array of size 2 that contains the two largest values
+		 * 	in the myValues array.  The larger of the two values will
+		 * 	be in the 0th element,
+		 */
+		if(myValues.equals(null) || myValues.length <= 2 )
+			return null;
+		else
+		{
+			double high1 = 0;
+			double high2 = 0;
+
+			double[] dblArray = new double[1];
+			for(int i = 0; i < dblArray.length; ++i)
+				if(myValues[i] >= high1)
+				{
+					high2 = high1;
+					high1 = i;
+				}
+			return dblArray;
+		}
+	}
+
+}

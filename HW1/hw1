@@ -1,0 +1,13 @@
+/s/bach/c/under/alaswell
+Who decided that rainbows
+should have exactly SEVEN colors?
+Vatican City has about 12 popes per square mile.
+The best numbers are 1957, 74253421, 2016, and e.
+mkdir Pascal
+ls Pascal
+cd Pascal
+ls ~cs155/bin/ >>names
+cp names ~/my-names
+cd ~
+rm -rd Pascal
+cp ~cs155/pub/hw1Files/* ./

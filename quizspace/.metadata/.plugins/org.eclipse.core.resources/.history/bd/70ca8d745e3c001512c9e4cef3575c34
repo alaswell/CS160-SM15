@@ -1,0 +1,83 @@
+// Quiz: F2
+// Author: alaswell
+// Date: Aug 6, 2015
+// Class: CS160
+// Email: alaswell@cs.colostate.edu
+import java.util.*;
+import java.io.*;
+
+public class F2 implements F2Interface {
+
+	public static void main(String[] args) {
+//		F2 r = new F2();
+//		String[] testString = r.readFile("output.txt");
+//		System.out.println(Arrays.toString(testString));
+	}
+
+	@Override
+	public String[] readFile(String filename) {
+
+		try{
+			Scanner infile = new Scanner(new File(filename));
+			
+			String[] stringArray = new String[infile.nextInt()];
+			
+			for(int i = 0; i < stringArray.length; ++i)
+				stringArray[i] = infile.next();
+			
+			infile.close();
+			return stringArray;
+			
+		} catch (FileNotFoundException e){
+			return null;
+		}
+		
+	}
+
+	@Override
+	public int[] computeStatistics(String[] myStrings) {
+		/*
+	  	 * Method: computeStatistics
+	  	 * Purpose: Compute statistics for the myStrings array
+	  	 * Precondition: myStrings contains array of strings
+	  	 * Postcondition: computeStatistics returns an integer array of size 3
+	  	 * Postcondition: the element at index 0 of the return array is set to the 
+	  	 * 	number of characters in the array
+	  	 * PostconditionP: the element at index 1 of the return array is set to the
+	  	 * 	number of letters in the array
+	  	 * Postcondition: the element at index 2 of the return array is set to the 
+	  	 * 	number of digits in the array
+	  	 * Postcondition: if myStrings is null, return null
+	  	 */
+		int[] countArray = new int[2];
+		int counter = 0;
+		
+		for(int i = 0; i < 3; ++i)
+		{
+			for(int j = 0; j < myStrings.length; ++j)
+			{
+				
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void writeFile(String filename, String[] myStrings) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int sumRange(int[] myValues, int low, int high) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double[] findLargest(double[] myValues) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,73 @@
+// Quiz: F2
+// Author: alaswell
+// Date: Aug 6, 2015
+// Class: CS160
+// Email: alaswell@cs.colostate.edu
+import java.util.*;
+import java.io.*;
+
+public class F2 implements F2Interface {
+
+	public static void main(String[] args) {
+		F2 r = new F2();
+		String[] testString = r.readFile("output.txt");
+		System.out.println(Arrays.toString(testString));
+	}
+
+	@Override
+	public String[] readFile(String filename) {
+		/*
+	 	 *  Method: readFile
+	 	 *  Purpose: to read a file into a string array
+	 	 *  Precondition: filename set to the name of the file to read
+	 	 *  Precondition: first line of the input file contains the number 
+		 *		of lines in the file. (Not counting the line containing
+		 *		the number of lines).
+	 	 *  Postcondition: Each element of the return array is set to a 1 
+	 	 *  		line in file in the order they were read.
+	 	 *  Postcondition: The length of the return array is set to the
+	 	 *  		number of strings in the input file.
+	 	 *  Postcondition: if the file does not exist, return null
+	 	 */
+		try{
+			Scanner infile = new Scanner(new File(filename));
+			
+			String[] stringArray = new String[infile.nextInt()];
+			
+			for(int i = 0; i < stringArray.length; ++i)
+				stringArray[i] = infile.next();
+			
+			infile.close();
+			return stringArray;
+			
+		} catch (FileNotFoundException e){
+			return null;
+		}
+		
+	}
+
+	@Override
+	public int[] computeStatistics(String[] myStrings) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void writeFile(String filename, String[] myStrings) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int sumRange(int[] myValues, int low, int high) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double[] findLargest(double[] myValues) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
